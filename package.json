@@ -10,6 +10,7 @@
   "author": "flyingscot5",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "discord.js": "^11.2.1",
+    "sqlite3": "^3.1.13"
   }
 }
