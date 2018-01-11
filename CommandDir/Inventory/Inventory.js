@@ -19,5 +19,5 @@ exports.conf = {
 exports.help = {
   name: 'inventory',
   description: 'Baisc inventory',
-  usage: 'Example'
+  usage: '/inventory'
 };
