@@ -20,7 +20,7 @@ fs.readdir('./CommandDir/', (err, folders) => {
       if (err) console.error(err);
       files.forEach(f => {
         let props = require(`./CommandDir/${folder}/${f}`);
-        console.log(`${TimeStamp} Loading Command: ${props.help.displayname}`);
+        console.log(`${TimeStamp} Loading Command: ${props.help.name}`);
         bot.commands.set(props.help.name, props);
         props.conf.aliases.forEach(alias => {
           bot.aliases.set(alias, props.help.name);
