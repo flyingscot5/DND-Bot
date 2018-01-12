@@ -7,8 +7,11 @@ class Class_DB {
 
   };
 
-  delete() {
-
+  delete(classLocation, classIdentifier) {
+    db.run(`DELETE FROM Classes WHERE ${classLocation}=${classIdentifier}`, function(err) {
+      if (err)
+        console.log(err)
+    });
   };
 
   update(classLocation, classIdentifier, selectedColumn, newContent) {
