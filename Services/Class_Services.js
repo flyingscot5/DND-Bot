@@ -6,11 +6,26 @@ class Class_Services {
   };
 
   classCreate() {
-    this._ClassDB.create();
+    if (this._params.length <= 2) {
+      return this._message.channel.send('Error');
+    }
+
+    let className = this._params[1];
+    let classDesc = this._params[2];
+
+    this._ClassDB.create(className, classDesc);
   };
 
   classDelete() {
-    this._ClassDB.delete();
+    if (this._params.length <= 2) {
+      return this._message.channel.send('Error');
+    }
+
+    let classLocation = this._params[1];
+    let classIdentifier = this._params[2];
+
+    this._ClassDB.delete(classLocation, classIdentifier);
+
   };
 
   classUpdate() {
@@ -20,7 +35,7 @@ class Class_Services {
 
     let classLocation = this._params[1];
     let classIdentifier = this._params[2];
-    let selectedColumn =this._params[3];
+    let selectedColumn = this._params[3];
     let newContent = this._params[4];
 
     this._ClassDB.update(classLocation, classIdentifier, selectedColumn, newContent);
