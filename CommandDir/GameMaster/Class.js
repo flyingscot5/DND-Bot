@@ -1,9 +1,6 @@
 const Class_Services = require('../../Services/Class_Services.js').Class_Services;
 const Class_DB = require('../../Services/Class_DB.js').Class_DB;
 
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./GameDataBase.db');
-
 var prefix = '!';
 
 exports.run = function(bot, message, params) {

@@ -18,10 +18,10 @@ class Class_Services {
       return this._message.channel.send('Error');
     }
 
-    var classLocation = this._params[1];
-    var classIdentifier = this._params[2];
-    var selectedColumn =this._params[3];
-    var newContent = this._params[4];
+    let classLocation = this._params[1];
+    let classIdentifier = this._params[2];
+    let selectedColumn =this._params[3];
+    let newContent = this._params[4];
 
     this._ClassDB.update(classLocation, classIdentifier, selectedColumn, newContent);
 
@@ -30,7 +30,14 @@ class Class_Services {
   };
 
   classGet() {
-    this._ClassDB.get();
+    if (this._params.length <= 2) {
+      return this._message.channel.send('Error');
+    }
+
+    let classLocation = this._params[1];
+    let classIdentifier = this._params[2];
+
+    this._ClassDB.get(classLocation, classIdentifier);
   };
 
 };
