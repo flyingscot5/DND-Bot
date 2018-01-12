@@ -18,8 +18,11 @@ class Class_DB {
     })
   };
 
-  get() {
-
+  get(classLocation, classIdentifier) {
+    db.get(`SELECT * FROM Classes WHERE ${classLocation}=${classIdentifier}`, function(err, row) {
+      if (err)
+        console.log(err)
+    });
   };
 
 }
