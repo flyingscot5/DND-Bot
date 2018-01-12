@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('DnD-Bot.db');
+const db = new sqlite3.Database('GameDataBase.db');
 
 exports.run = function(bot, message, params) {
 
