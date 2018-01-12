@@ -6,7 +6,14 @@ class Class_Services {
   };
 
   classCreate() {
-    this._ClassDB.create();
+    if (this._params.length <= 2) {
+      return this._message.channel.send('Error');
+    }
+
+    let className = this._params[1];
+    let classDesc = this._params[2];
+
+    this._ClassDB.create(className, classDesc);
   };
 
   classDelete() {
