@@ -11,7 +11,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'exmaple',  
+  name: 'example',
   description: 'Example',
   usage: 'Example'
 };
