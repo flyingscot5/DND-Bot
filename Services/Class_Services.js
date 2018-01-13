@@ -5,7 +5,7 @@ class Class_Services {
     this._ClassDB = Class_DB;
   };
 
-  classCreate() {
+  async classCreate() {
     if (this._params.length <= 2) {
       return this._message.channel.send('Error');
     }
@@ -20,7 +20,7 @@ class Class_Services {
     });
   };
 
-  classDelete() {
+  async classDelete() {
     if (this._params.length <= 2) {
       return this._message.channel.send('Error');
     }
@@ -35,7 +35,7 @@ class Class_Services {
     });
   };
 
-  classUpdate() {
+  async classUpdate() {
     if (this._params.length <= 4) {
       return this._message.channel.send('Error');
     }

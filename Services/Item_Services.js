@@ -5,7 +5,7 @@ class Item_Services {
     this._ItemDB = Item_DB;
   };
 
-  itemCreate() {
+  async itemCreate() {
     if (this._params.length <= 2) {
       return this._message.channel.send('Error');
     }
@@ -20,7 +20,7 @@ class Item_Services {
     });
   };
 
-  itemDelete() {
+  async itemDelete() {
     if (this._params.length <= 2) {
       return this._message.channel.send('Error');
     }
@@ -35,7 +35,7 @@ class Item_Services {
     });
   };
 
-  itemUpdate() {
+  async itemUpdate() {
     if (this._params.length <= 4) {
       return this._message.channel.send('Error');
     }
