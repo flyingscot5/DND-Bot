@@ -76,6 +76,14 @@ class Player_Services {
 
   };
 
+  async playerGetInventory() {
+
+    let UserID = this._message.author.id;
+
+    return await this._PlayerDB.getInventory(UserID);
+
+  };
+
 };
 
 exports.Player_Services = Player_Services;

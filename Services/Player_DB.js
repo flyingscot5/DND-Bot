@@ -47,10 +47,8 @@ class Player_DB {
       sum (p.ChaBonus + c.classChaBonus + r.raceChaBonus) as ChaTotal,
       *
       FROM Players p
-        inner join Inventorys i on i.ID = p.InvID
         inner join Classes c on c.ID = p.ClassID
         inner join Races r on r.ID = p.RaceID
-        inner join Skills s on s.ID = p.SkillsID
       where p.ID="${UserID}"`, function(err, row) {
       if (err)
         ret(err)
@@ -59,6 +57,23 @@ class Player_DB {
     }));
 
   };
+
+  getInventory(UserID) {
+    return new Promise((res, ret) => db.all(`SELECT count(ItemID) as Quantity,
+      i.*, it.*
+      FROM Players p
+      inner join Inventorys i on i.FK_InvID = p.InvID
+      inner join Items it on it.ID = i.ItemID
+      where p.ID="${UserID}"
+      group by it.ID`, function(err, row) {
+      if (err)
+        ret(err)
+      else
+        res(row)
+    }));
+
+  };
+
 }
 
 exports.Player_DB = Player_DB;
