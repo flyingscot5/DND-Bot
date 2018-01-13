@@ -28,13 +28,14 @@ class Class_DB {
   };
 
   get(classLocation, classIdentifier) {
-    db.get(`SELECT * FROM Classes WHERE ${classLocation}="${classIdentifier}"`, function(err, row) {
+    return new Promise((res, ret) => db.get(`SELECT * FROM Classes WHERE ${classLocation}="${classIdentifier}"`, function(err, row) {
       if (err)
-        console.log(err)
-    });
+        ret(err)
+      else
+        res(row)
+    }));
 
   };
-
 }
 
 exports.Class_DB = Class_DB;

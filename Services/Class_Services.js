@@ -44,7 +44,8 @@ class Class_Services {
 
   };
 
-  classGet() {
+
+  async classGet() {
     if (this._params.length <= 2) {
       return this._message.channel.send('Error');
     }
@@ -52,7 +53,11 @@ class Class_Services {
     let classLocation = this._params[1];
     let classIdentifier = this._params[2];
 
-    this._ClassDB.get(classLocation, classIdentifier);
+    var row = this._ClassDB.get(classLocation, classIdentifier);
+
+    row.then(function(result) {
+      console.log(result);
+    })
   };
 
 };
