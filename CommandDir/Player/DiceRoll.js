@@ -13,12 +13,12 @@ exports.run = function(bot, message, params) {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['dice','d'],
+  aliases: ['dice','d','roll'],
   permLevel: 1
 };
 
 exports.help = {
-  name: 'roll',
+  name: 'diceroll',
   description: 'Roll a dice.',
   usage: '!roll # of sides'
 };
