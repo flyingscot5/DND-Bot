@@ -37,7 +37,7 @@ class Player_DB {
 
   };
 
-  getStats(playerLocation, playerIdentifier) {
+  getStats(UserID) {
     return new Promise((res, ret) => db.get(`SELECT
       sum (p.StrBonus + c.classStrBonus + r.raceStrBonus) as StrTotal,
       sum (p.DexBonus + c.classDexBonus + r.raceDexBonus) as DexTotal,
@@ -51,7 +51,7 @@ class Player_DB {
         inner join Classes c on c.ID = p.ClassID
         inner join Races r on r.ID = p.RaceID
         inner join Skills s on s.ID = p.SkillsID
-      where p.${playerLocation}="${playerIdentifier}"`, function(err, row) {
+      where p.ID="${UserID}"`, function(err, row) {
       if (err)
         ret(err)
       else
