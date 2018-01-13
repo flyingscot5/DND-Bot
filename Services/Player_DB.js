@@ -36,6 +36,29 @@ class Player_DB {
     }));
 
   };
+
+  getStats(playerLocation, playerIdentifier) {
+    return new Promise((res, ret) => db.get(`SELECT
+      sum (p.StrBonus + c.classStrBonus + r.raceStrBonus) as StrTotal,
+      sum (p.DexBonus + c.classDexBonus + r.raceDexBonus) as DexTotal,
+      sum (p.ConBonus + c.classConBonus + r.raceConBonus) as ConTotal,
+      sum (p.IntBonus + c.classIntBonus + r.raceIntBonus) as IntTotal,
+      sum (p.WisBonus + c.classWisBonus + r.raceWisBonus) as WisTotal,
+      sum (p.ChaBonus + c.classChaBonus + r.raceChaBonus) as ChaTotal,
+      *
+      FROM Players p
+        inner join Inventorys i on i.ID = p.InvID
+        inner join Classes c on c.ID = p.ClassID
+        inner join Races r on r.ID = p.RaceID
+        inner join Skills s on s.ID = p.SkillsID
+      where p.${playerLocation}="${playerIdentifier}"`, function(err, row) {
+      if (err)
+        ret(err)
+      else
+        res(row)
+    }));
+
+  };
 }
 
 exports.Player_DB = Player_DB;

@@ -68,6 +68,18 @@ class Player_Services {
     });
   };
 
+  async playerGetStats() {
+    if (this._params.length <= 1) {
+      return this._message.channel.send('Error');
+    }
+
+    let playerLocation = this._params[0];
+    let playerIdentifier = this._params[1];
+
+    return await this._PlayerDB.getStats(playerLocation, playerIdentifier);
+
+  };
+
 };
 
 exports.Player_Services = Player_Services;
