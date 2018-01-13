@@ -13,7 +13,11 @@ class Class_Services {
     let className = this._params[1];
     let classDesc = this._params[2];
 
-    this._ClassDB.create(className, classDesc);
+    var PromiseResult = this._ClassDB.create(className, classDesc);
+
+    PromiseResult.then(function(result) {
+      console.log(result);
+    });
   };
 
   classDelete() {
@@ -24,8 +28,11 @@ class Class_Services {
     let classLocation = this._params[1];
     let classIdentifier = this._params[2];
 
-    this._ClassDB.delete(classLocation, classIdentifier);
+    var PromiseResult = this._ClassDB.delete(classLocation, classIdentifier);
 
+    PromiseResult.then(function(result) {
+      console.log(result);
+    });
   };
 
   classUpdate() {
@@ -38,10 +45,11 @@ class Class_Services {
     let selectedColumn = this._params[3];
     let newContent = this._params[4];
 
-    this._ClassDB.update(classLocation, classIdentifier, selectedColumn, newContent);
+    var PromiseResult = this._ClassDB.update(classLocation, classIdentifier, selectedColumn, newContent);
 
-    this._message.channel.send(`Attempting to update`)
-
+    PromiseResult.then(function(result) {
+      console.log(result);
+    });
   };
 
 
@@ -53,11 +61,11 @@ class Class_Services {
     let classLocation = this._params[1];
     let classIdentifier = this._params[2];
 
-    var row = this._ClassDB.get(classLocation, classIdentifier);
+    var PromiseResult = this._ClassDB.get(classLocation, classIdentifier);
 
-    row.then(function(result) {
+    PromiseResult.then(function(result) {
       console.log(result);
-    })
+    });
   };
 
 };

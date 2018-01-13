@@ -4,26 +4,26 @@ const db = new sqlite3.Database('./GameDataBase.db');
 class Class_DB {
 
   create(className, classDesc) {
-    db.run(`INSERT INTO Classes VALUES (${null}, "${className}", "${classDesc}")`, function(err) {
+    return new Promise((res, ret) => db.run(`INSERT INTO Classes VALUES (${null}, "${className}", "${classDesc}")`, function(err) {
       if (err)
-        console.log(err)
-    });
+        ret(err)
+    }));
 
   };
 
   delete(classLocation, classIdentifier) {
-    db.run(`DELETE FROM Classes WHERE ${classLocation}="${classIdentifier}"`, function(err) {
+    return new Promise((res, ret) => db.run(`DELETE FROM Classes WHERE ${classLocation}="${classIdentifier}"`, function(err) {
       if (err)
-        console.log(err)
-    });
+        ret(err)
+    }));
 
   };
 
   update(classLocation, classIdentifier, selectedColumn, newContent) {
-    db.each(`UPDATE Classes SET ${selectedColumn}="${newContent}" WHERE ${classLocation}="${classIdentifier}"`, function(err) {
+    return new Promise((res, ret) => db.each(`UPDATE Classes SET ${selectedColumn}="${newContent}" WHERE ${classLocation}="${classIdentifier}"`, function(err) {
       if (err)
-        console.log(err)
-    });
+        ret(err)
+    }));
 
   };
 
