@@ -36,6 +36,17 @@ class Item_DB {
     }));
 
   };
+
+  getAll() {
+    return new Promise((res, ret) => db.all(`SELECT * FROM Items`, function(err, row) {
+      if (err)
+        ret(err)
+      else
+        res(row)
+    }));
+
+  };
+
 }
 
 exports.Item_DB = Item_DB;

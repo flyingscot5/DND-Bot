@@ -54,6 +54,7 @@ class Player_DB {
         ret(err)
       else
         res(row)
+        console.log(row);
     }));
 
   };

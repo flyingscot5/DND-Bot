@@ -61,11 +61,15 @@ class Class_Services {
     let classLocation = this._params[1];
     let classIdentifier = this._params[2];
 
-    var PromiseResult = this._ClassDB.get(classLocation, classIdentifier);
+    return await this._ClassDB.get(classLocation, classIdentifier);
 
-    PromiseResult.then(function(result) {
-      console.log(result);
-    });
+
+  };
+
+  async classGetAll() {
+
+    return await this._ClassDB.getAll();
+
   };
 
 };

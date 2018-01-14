@@ -4,7 +4,7 @@ const db = new sqlite3.Database('./GameDataBase.db');
 class Class_DB {
 
   create(className, classDesc) {
-    return new Promise((res, ret) => db.run(`INSERT INTO Classes VALUES (${null}, "${className}", "${classDesc}")`, function(err) {
+    return new Promise((res, ret) => db.run(`INSERT INTO Classes VALUES (${null}, "${className}", "${classDesc}", 0, 0, 0, 0, 0, 0)`, function(err) {
       if (err)
         ret(err)
     }));
@@ -36,6 +36,17 @@ class Class_DB {
     }));
 
   };
+
+  getAll() {
+    return new Promise((res, ret) => db.all(`SELECT * FROM Classes`, function(err, row) {
+      if (err)
+        ret(err)
+      else
+        res(row)
+    }));
+
+  };
+
 }
 
 exports.Class_DB = Class_DB;

@@ -17,7 +17,24 @@ exports.run = function(bot, message, params) {
     raceService.raceUpdate();
 
   } else if (params[0] == 'get') {
-    raceService.raceGet();
+
+    var PromiseResult = raceService.raceGet();
+    PromiseResult.then(function(result) {
+      message.channel.send(`CLASS:\n\nID: ${result.ID} \nName: ${result.Name} \nDesc: ${result.Desc}
+        \nStr: ${result.raceStrBonus} \nDex: ${result.raceDexBonus} \nCon: ${result.raceConBonus}
+        \nInt: ${result.raceIntBonus} \nWis: ${result.raceWisBonus} \nCha: ${result.raceChaBonus}`)
+    });
+
+  } else if (params[0] == 'list') {
+    var PromiseResult = raceService.raceGetAll();
+
+    PromiseResult.then(function(result) {
+
+      let tosend = [];
+      result.forEach((result) => { tosend.push(`**${result.ID}** - ${result.Name}`);});
+      message.channel.send(`-\n${tosend.slice().join('\n\n')}`);
+
+    });
 
   } else {
     message.channel.send(`${prefix}race ${params[0]} is Invalid. You can use one of theses Options <add, remove, update, get>`)

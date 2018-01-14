@@ -61,11 +61,14 @@ class Item_Services {
     let itemLocation = this._params[1];
     let itemIdentifier = this._params[2];
 
-    var PromiseResult = this._ItemDB.get(itemLocation, itemIdentifier);
+    return await this._ItemDB.get(itemLocation, itemIdentifier);
 
-    PromiseResult.then(function(result) {
-      console.log(result);
-    });
+  };
+
+  async itemGetAll() {
+
+    return await this._ItemDB.getAll();
+
   };
 
 };

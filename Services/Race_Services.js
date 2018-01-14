@@ -61,11 +61,14 @@ class Race_Services {
     let raceLocation = this._params[1];
     let raceIdentifier = this._params[2];
 
-    var PromiseResult = this._RaceDB.get(raceLocation, raceIdentifier);
+    return await this._RaceDB.get(raceLocation, raceIdentifier);
 
-    PromiseResult.then(function(result) {
-      console.log(result);
-    });
+  };
+
+  async raceGetAll() {
+
+    return await this._RaceDB.getAll();
+
   };
 
 };
