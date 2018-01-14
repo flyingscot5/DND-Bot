@@ -6,14 +6,10 @@ class Player_Services {
   };
 
   async playerCreate() {
-    if (this._params.length <= 2) {
-      return this._message.channel.send('Error');
-    }
+    let UserID = this._message.mentions.users.first().id;
+    let UserName = this._message.mentions.users.first().username;
 
-    let playerName = this._params[1];
-    let playerDesc = this._params[2];
-
-    var PromiseResult = this._PlayerDB.create(playerName, playerDesc);
+    var PromiseResult = this._PlayerDB.create(UserID, UserName);
 
     PromiseResult.then(function(result) {
       console.log(result);

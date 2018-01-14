@@ -3,8 +3,8 @@ const db = new sqlite3.Database('./GameDataBase.db');
 
 class Player_DB {
 
-  create(playerName, playerDesc) {
-    return new Promise((res, ret) => db.run(`INSERT INTO Players VALUES (${null}, "${playerName}", "${playerDesc}")`, function(err) {
+  create(UserID, UserName) {
+    return new Promise((res, ret) => db.run(`INSERT INTO Players VALUES (${UserID}, "${UserName}", 0, ${null}, ${null}, ${null}, ${null}, 0, 0, 0, 0, 0, 0, 0)`, function(err) {
       if (err)
         ret(err)
     }));
