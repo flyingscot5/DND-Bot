@@ -20,7 +20,7 @@ exports.run = function(bot, message, params) {
 
     var PromiseResult = itemService.itemGet();
     PromiseResult.then(function(result) {
-      message.channel.send(`CLASS:\n\nID: ${result.ID} \nName: ${result.Name} \nDesc: ${result.Desc}
+      message.channel.send(`ITEM:\n\nID: ${result.ID} \nName: ${result.Name} \nDesc: ${result.Desc}
         \nValueUp: ${result.ValueUp} \nValueDown: ${result.ValueDown} \nRarity: ${result.Rarity}`)
     });
 

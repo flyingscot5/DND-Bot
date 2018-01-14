@@ -80,6 +80,14 @@ class Player_Services {
 
   };
 
+  async playerGetAll() {
+
+    let UserID = this._message.author.id;
+
+    return await this._PlayerDB.getAll(UserID);
+
+  };
+
 };
 
 exports.Player_Services = Player_Services;

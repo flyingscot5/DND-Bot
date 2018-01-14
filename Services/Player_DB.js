@@ -75,6 +75,22 @@ class Player_DB {
 
   };
 
+  getAll(UserID) {
+    return new Promise((res, ret) => db.get(`SELECT *
+      FROM Players p
+      left join Inventorys i on i.ID = p.InvID
+      left join Classes c on c.ID = p.ClassID
+      left join Races r on r.ID = p.RaceID
+      left join Skills s on s.ID = p.SkillsID
+      where p.ID =${UserID}`, function(err, row) {
+      if (err)
+        ret(err)
+      else
+        res(row)
+    }));
+
+  };
+
 }
 
 exports.Player_DB = Player_DB;
