@@ -43,7 +43,7 @@ class Item_Services {
     let itemLocation = this._params[1];
     let itemIdentifier = this._params[2];
     let selectedColumn = this._params[3];
-    let newContent = this._params[4];
+    let newContent = this._params.slice(4,this._params.length).join(' ');
 
     var PromiseResult = this._ItemDB.update(itemLocation, itemIdentifier, selectedColumn, newContent);
 

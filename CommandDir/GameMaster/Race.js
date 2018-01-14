@@ -20,7 +20,7 @@ exports.run = function(bot, message, params) {
 
     var PromiseResult = raceService.raceGet();
     PromiseResult.then(function(result) {
-      message.channel.send(`CLASS:\n\nID: ${result.ID} \nName: ${result.Name} \nDesc: ${result.Desc}
+      message.channel.send(`RACE:\n\nID: ${result.ID} \nName: ${result.Name} \nDesc: ${result.Desc}
         \nStr: ${result.raceStrBonus} \nDex: ${result.raceDexBonus} \nCon: ${result.raceConBonus}
         \nInt: ${result.raceIntBonus} \nWis: ${result.raceWisBonus} \nCha: ${result.raceChaBonus}`)
     });

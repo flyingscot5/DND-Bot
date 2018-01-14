@@ -4,7 +4,7 @@ const db = new sqlite3.Database('./GameDataBase.db');
 class Item_DB {
 
   create(itemName, itemDesc) {
-    return new Promise((res, ret) => db.run(`INSERT INTO Items VALUES (${null}, "${itemName}", "${itemDesc}")`, function(err) {
+    return new Promise((res, ret) => db.run(`INSERT INTO Items VALUES (${null}, "${itemName}", "${itemDesc}",0,0,0)`, function(err) {
       if (err)
         ret(err)
     }));

@@ -39,7 +39,7 @@ class Player_Services {
     let playerLocation = this._params[1];
     let playerIdentifier = this._params[2];
     let selectedColumn = this._params[3];
-    let newContent = this._params[4];
+    let newContent = this._params.slice(4,this._params.length).join(' ');
 
     var PromiseResult = this._PlayerDB.update(playerLocation, playerIdentifier, selectedColumn, newContent);
 
