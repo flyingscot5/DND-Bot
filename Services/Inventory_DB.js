@@ -3,8 +3,8 @@ const db = new sqlite3.Database('./GameDataBase.db');
 
 class Inventory_DB {
 
-  create(inventoryName, inventoryDesc) {
-    return new Promise((res, ret) => db.run(`INSERT INTO Inventorys VALUES (${null}, "${inventoryName}", "${inventoryDesc}")`, function(err) {
+  create(itemID, inventoryID) {
+    return new Promise((res, ret) => db.run(`INSERT INTO Inventorys VALUES (${null}, "${itemID}", "${inventoryID}")`, function(err) {
       if (err)
         ret(err)
     }));

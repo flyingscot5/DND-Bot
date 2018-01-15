@@ -10,10 +10,10 @@ class Inventory_Services {
       return this._message.channel.send('Error');
     }
 
-    let inventoryName = this._params[1];
-    let inventoryDesc = this._params[2];
+    let itemID = this._params[1];
+    let inventoryID = this._params[2];
 
-    var PromiseResult = this._InventoryDB.create(inventoryName, inventoryDesc);
+    var PromiseResult = this._InventoryDB.create(itemID, inventoryID);
 
     PromiseResult.then(function(result) {
       console.log(result);
